@@ -1,4 +1,6 @@
 
+> cor
+
 	Pearson's product-moment correlation
 
 data:  data$ocupacao_leitos and data$vacina_1d_cum
@@ -10,3 +12,5 @@ sample estimates:
       cor 
 -0.576039 
 
+
+> sink()

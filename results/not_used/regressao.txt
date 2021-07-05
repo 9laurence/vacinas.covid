@@ -1,4 +1,6 @@
 
+> summary(reg)
+
 Call:
 lm(formula = ocupacao_leitos ~ mes + vacina_1d_cum, data = d)
 
@@ -29,6 +31,8 @@ Multiple R-squared:  0.4519,	Adjusted R-squared:  0.4289
 F-statistic: 19.62 on 5 and 119 DF,  p-value: 0.00000000000003226
 
 
+> lm.beta::lm.beta(reg)
+
 Call:
 lm(formula = ocupacao_leitos ~ mes + vacina_1d_cum, data = d)
 
@@ -38,3 +42,5 @@ Standardized Coefficients::
          mes7 vacina_1d_cum 
    -0.1898088    -0.3568319 
 
+
+> sink()

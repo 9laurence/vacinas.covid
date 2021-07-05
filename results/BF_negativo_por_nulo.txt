@@ -1,3 +1,5 @@
+
+> corBF[2]/corBF[1]
 Bayes factor analysis
 --------------
 [1] Alt., r=0.333 -1<rho<0 : 1.999354 ±NA%
@@ -7,3 +9,5 @@ Against denominator:
 ---
 Bayes factor type: BFcorrelation, Jeffreys-beta*
 
+
+> sink()
