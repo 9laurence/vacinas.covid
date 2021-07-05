@@ -1,0 +1,12 @@
+
+	Pearson's product-moment correlation
+
+data:  data$ocupacao_leitos and data$vacina_1d_cum
+t = -7.8155, df = 123, p-value = 0.000000000002088
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.6825972 -0.4454965
+sample estimates:
+      cor 
+-0.576039 
+

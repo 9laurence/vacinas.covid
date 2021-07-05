@@ -1,0 +1,40 @@
+
+Call:
+lm(formula = ocupacao_leitos ~ mes + vacina_1d_cum, data = d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-12.416  -1.644   0.263   2.148   6.583 
+
+Coefficients:
+                   Estimate    Std. Error t value
+(Intercept)   87.4730739965  1.0636128601  82.241
+mes4           0.4812575257  1.2112596681   0.397
+mes5          -4.6078724950  1.8415513729  -2.502
+mes6          -1.6184365639  3.0116323687  -0.537
+mes7          -6.3934455588  4.7014661932  -1.360
+vacina_1d_cum -0.0000003920  0.0000002522  -1.554
+                         Pr(>|t|)    
+(Intercept)   <0.0000000000000002 ***
+mes4                       0.6918    
+mes5                       0.0137 *  
+mes6                       0.5920    
+mes7                       0.1764    
+vacina_1d_cum              0.1228    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.912 on 119 degrees of freedom
+Multiple R-squared:  0.4519,	Adjusted R-squared:  0.4289 
+F-statistic: 19.62 on 5 and 119 DF,  p-value: 0.00000000000003226
+
+
+Call:
+lm(formula = ocupacao_leitos ~ mes + vacina_1d_cum, data = d)
+
+Standardized Coefficients::
+  (Intercept)          mes4          mes5          mes6 
+    0.0000000     0.0398695    -0.3859989    -0.1340784 
+         mes7 vacina_1d_cum 
+   -0.1898088    -0.3568319 
+
