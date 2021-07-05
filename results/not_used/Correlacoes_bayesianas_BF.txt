@@ -1,0 +1,11 @@
+Bayes factor analysis
+--------------
+[1] Alt., r=0.333             : 18563202  ±0%
+[2] Alt., r=0.333 -1<rho<0    : 37116754  ±NA%
+[3] Alt., r=0.333 !(-1<rho<0) : 0.0286767 ±NA%
+
+Against denominator:
+  Null, rho = 0 
+---
+Bayes factor type: BFcorrelation, Jeffreys-beta*
+

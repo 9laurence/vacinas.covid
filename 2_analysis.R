@@ -8,14 +8,13 @@ options(scipen = 999)
 # source("1_load_data_and_clean.R")
 
 ## Analises ----
-## Correlacoes
+## Correlacoes com dados vacina acumulado
 # Dados correlacoes
-
-# Correlacao de Pearson
 data <- df %>% filter(mes > 2) %>%
   select(ocupacao_leitos, vacina_1d_cum) %>%
   na.omit()
 
+# Correlacao de Pearson
 cor <- cor.test(data$ocupacao_leitos, data$vacina_1d_cum)
 
 sink("results/Correlacao_de_peason.txt")
@@ -41,6 +40,38 @@ sink("results/BF_negativo_por_positivo.txt")
 corBF[2]/corBF[3]
 sink()
 
+## Correlacoes com dados da primeira dose atrasados em 21 dias
+# Dados correlacoes
+data <- df %>% filter(mes > 2) %>%
+  select(ocupacao_leitos, vacina_1d_mm7d) %>%
+  na.omit()
+
+# Correlacao de Pearson
+cor <- cor.test(data$ocupacao_leitos, data$vacina_1d_mm7d)
+
+sink("results/not_used/Correlacao_de_peason.txt")
+cor
+sink()
+
+# Correlacao Bayesiana comparando modelo de relação negativa com positiva
+corBF1 <-  correlationBF(data$ocupacao_leitos, data$vacina_1d_mm7d)
+corBF2 <- correlationBF(data$ocupacao_leitos, data$vacina_1d_mm7d,
+                        nullInterval = c(-1, 0))
+
+corBF <- c(corBF1, corBF2)
+
+sink("results/not_used/Correlacoes_bayesianas_BF.txt")
+corBF
+sink()
+
+sink("results/not_used/BF_negativo_por_nulo.txt")
+corBF[2]/corBF[1]
+sink()
+
+sink("results/not_used/BF_negativo_por_positivo.txt")
+corBF[2]/corBF[3]
+sink()
+
 ## Modelo
 # Data para o modelo
 d <- df %>% filter(mes > 2) %>%  
@@ -55,6 +86,9 @@ sink("results/not_used/regressao.txt")
 summary(reg)
 lm.beta::lm.beta(reg)
 sink()
+
+
+
 
 ## Graficos ----
 # Grafico entre ocupacoes e primeira dose pelo tempo com variaveis estandardizadas.

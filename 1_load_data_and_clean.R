@@ -77,7 +77,8 @@ df_v1 <- dv2 %>% filter(dose == "1° DOSE") %>%
   select(-dose) %>% 
   rename(vacina_1d = contagem) %>% 
   arrange(datahora) %>% 
-  mutate(vacina_1d_cum = cumsum(vacina_1d))
+  mutate(vacina_1d_cum = cumsum(vacina_1d),
+         vacina_1d_mm7d = lag(zoo::rollmean(vacina_1d, 7, align = "right", fill = NA), n = 21))
 
 df_v2 <- dv2 %>% filter(dose == "2° DOSE") %>% 
   select(-dose) %>% 
@@ -85,6 +86,7 @@ df_v2 <- dv2 %>% filter(dose == "2° DOSE") %>%
   arrange(datahora) %>% 
   mutate(vacina_2d_cum = cumsum(vacina_2d))
 
+# Juntar dados
 df <- full_join(df_covid, df_isolamento, by = "datahora") %>% 
   full_join(df_leitos, by = "datahora") %>% 
   full_join(df_v1, by = "datahora") %>% 
